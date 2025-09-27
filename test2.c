@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int main() {
     char input[50];
@@ -79,3 +80,4 @@ int main() {
     
     return 0;
 }
+
