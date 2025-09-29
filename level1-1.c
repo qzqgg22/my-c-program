@@ -43,18 +43,21 @@ int main() {
                 printf("please exit the current account\n");
             } else {
                 char username;
-                printf("please enter the user name('A'is the admin): ");
+                printf("please enter the user name ");
                 scanf(" %c", &username);
                 
-                if (username == 'A' || username == 'a') {
-                    current_user.type = USER_ADMIN;
-                    current_user.username = 'A';
-                    printf("welcome, admin!\n");
-                } else if ((username >= 'A' && username <= 'Z') || 
+                if ((username >= 'A' && username <= 'Z') || 
                           (username >= 'a' && username <= 'z')) {
                     current_user.type = USER_NORMAL;
                     current_user.username = toupper(username);
-                    printf("user %c login successfully!\n", current_user.username);
+                    printf("Are you admin?(answer 'yes' or 'no')\n");
+                    scanf("%s",input);
+                    if(strcmp(input,"yes")==0){
+                         current_user.type = USER_ADMIN;
+                         
+                    }else {
+                        continue;
+                    }
                 } else {
                     printf("the user's name must be A-Z\n");
                 }
